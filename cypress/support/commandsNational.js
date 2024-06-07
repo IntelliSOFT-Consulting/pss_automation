@@ -1,7 +1,7 @@
 Cypress.Commands.add("baseurl", () => {
-  //cy.clearCookies();
+    //cy.clearCookies();
     
-    cy.visit('https://global.pssinsight.org');
+    cy.visit('https://local.pssinsight.org');
   })
   
   Cypress.Commands.add('login', () => {
@@ -12,9 +12,7 @@ Cypress.Commands.add("baseurl", () => {
   Cypress.Commands.add("typeWithClear", { prevSubject: true }, (subject, text) => {
     // Clear the field using cy.clear() if it already has data
     cy.wrap(subject).then((element) => {
-      if (element.val() !== "") {
-        cy.wrap(element).clear();
-      }
+      
     });
   
     // Type the specified text into the field

@@ -5,7 +5,7 @@ import faker from 'faker';
 
 context('Actions', () => {
     beforeEach(() => {
-        cy.clearCookie('https://pssinternational.intellisoftkenya.com/');;
+        cy.clearCookie('https://global.pssinsight.org/dhis-web-commons/security/login.action');;
         cy.baseurl();
         cy.login();
     })
@@ -26,7 +26,7 @@ context('Actions', () => {
 
         cy.get('[data-test="headerbar-apps-icon"]').click()
         cy.wait(5000)
-        cy.get('[href="https://pssinternational.intellisoftkenya.com/api/apps/PSS-Insight/index.html"] > img.jsx-3199173843').click()
+        cy.get('[href="https://global.pssinsight.org/api/apps/PSS-Insight/index.html"]').click()
         cy.wait(5000)
         cy.get('[href="#/templates/versions"]').click()
         cy.get('[data-test="dhis2-uicore-button"]').click()
