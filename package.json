@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "faker": "^5.5.3"
+    "@cypress/webpack-preprocessor": "^6.0.2",
+    "faker": "^5.5.3",
+    "node-polyfill-webpack-plugin": "^4.0.0"
   },
   "devDependencies": {
     "@cypress-audit/lighthouse": "^1.4.2",

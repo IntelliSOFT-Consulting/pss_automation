@@ -5,16 +5,26 @@ import faker from 'faker';
 
 context('Actions', () => {
     beforeEach(() => {
-        cy.clearCookie('https://global.pssinsight.org/dhis-web-commons/security/login.action');;
+        cy.clearLocalStorage('https://global.pssinsight.org/dhis-web-commons/security/login.action');
         cy.baseurl();
         cy.login();
     })
 
-    
-       
-        
-
     it('.type() - Create Version', () => {
+           const thresholds = {
+            performance: 50,
+            accessibility: 80,
+            'first-contentful-paint': 2000,
+            'largest-contentful-paint': 3000,
+            interactive: 2000,
+            seo: 60,
+            pwa: 50,
+            };
+            const lighthouseConfig = {
+            formFactor: 'desktop',
+            screenEmulation: { disabled: true },
+            };
+            
         describe('Bstackdemo', () => {
         const accordionNames = [
             'Policy Laws and Governance',
@@ -48,7 +58,8 @@ context('Actions', () => {
         cy.contains('Publish template').click()
 
     })
-    cy.lighthouse();
-});
+    cy.lighthouse( thresholds, lighthouseConfig );
 })
+})
+
 
