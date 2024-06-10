@@ -1,5 +1,8 @@
+import '@cypress-audit/lighthouse/commands';
+
 Cypress.Commands.add("baseurl", () => {
   //cy.clearCookies();
+
     
     cy.visit('https://global.pssinsight.org');
   })

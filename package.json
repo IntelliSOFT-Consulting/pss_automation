@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "cypress": "^13.11.0",
     "faker": "^5.5.3"
+  },
+  "devDependencies": {
+    "@cypress-audit/lighthouse": "^1.4.2",
+    "cypress": "^13.11.0"
   }
 }

@@ -10,7 +10,12 @@ context('Actions', () => {
         cy.login();
     })
 
+    
+       
+        
+
     it('.type() - Create Version', () => {
+        describe('Bstackdemo', () => {
         const accordionNames = [
             'Policy Laws and Governance',
             'Financing',
@@ -43,4 +48,7 @@ context('Actions', () => {
         cy.contains('Publish template').click()
 
     })
+    cy.lighthouse();
+});
 })
+
