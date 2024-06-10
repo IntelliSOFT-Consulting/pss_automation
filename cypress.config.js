@@ -12,7 +12,7 @@ const { lighthouse, prepareAudit } = require("@cypress-audit/lighthouse");
 // const { pa11y } = require("@cypress-audit/pa11y");
 module.exports = {
 e2e: {
-baseUrl: "http://bstackdemo.com", // this is your app
+baseUrl: "https://global.pssinsight.org", // this is your app
 setupNodeEvents(on, config) {
 on("before:browser:launch", (browser = {}, launchOptions) => {
 prepareAudit(launchOptions);
