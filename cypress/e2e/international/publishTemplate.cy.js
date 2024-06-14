@@ -5,7 +5,7 @@ import faker from 'faker';
 
 context('Actions', () => {
     beforeEach(() => {
-        cy.clearLocalStorage('https://global.pssinsight.org/dhis-web-commons/security/login.action');
+       // cy.clearLocalStorage('https://global.pssinsight.org/dhis-web-commons/security/login.action');
         cy.baseurl();
         cy.login();
     })
