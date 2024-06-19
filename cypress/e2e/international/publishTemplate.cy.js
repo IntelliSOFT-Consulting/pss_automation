@@ -41,7 +41,7 @@ context('Actions', () => {
 
         cy.get('[data-test="headerbar-apps-icon"]').click()
         cy.wait(5000)
-        cy.get('[href="https://global.pssinsight.org/api/apps/PSS-Insight/index.html"]').click()
+        cy.get('[href="https://pssinternational.intellisoftkenya.com/api/apps/PSS-Insight/index.html"]').click()
         cy.wait(5000)
         cy.get('[href="#/templates/versions"]').click()
         cy.get('[data-test="dhis2-uicore-button"]').click()

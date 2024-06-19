@@ -4,7 +4,7 @@ Cypress.Commands.add("baseurl", () => {
   //cy.clearCookies();
 
     
-    cy.visit('https://global.pssinsight.org');
+    cy.visit('https://pssinternational.intellisoftkenya.com/dhis-web-dashboard/#/');
   })
   
   Cypress.Commands.add('login', () => {
