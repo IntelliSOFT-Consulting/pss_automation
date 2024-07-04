@@ -28,4 +28,3 @@ Cypress.Commands.add("baseurl", () => {
     // Suppress uncaught exceptions
     return false;
   })
-  

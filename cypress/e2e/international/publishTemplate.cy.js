@@ -1,6 +1,6 @@
 ///<reference types="cypress" />
 
-import faker from 'faker';
+import faker from 'faker'
 //const { administerVaccine } = require('./functions');
 
 context('Actions', () => {
@@ -11,21 +11,9 @@ context('Actions', () => {
     })
 
     it('.type() - Create Version', () => {
-           const thresholds = {
-            performance: 50,
-            accessibility: 80,
-            'first-contentful-paint': 2000,
-            'largest-contentful-paint': 3000,
-            interactive: 2000,
-            seo: 60,
-            pwa: 50,
-            };
-            const lighthouseConfig = {
-            formFactor: 'desktop',
-            screenEmulation: { disabled: true },
-            };
-            
-        describe('Bstackdemo', () => {
+                   
+        describe('Lighthouse Performance Test', () => {
+
         const accordionNames = [
             'Policy Laws and Governance',
             'Financing',
@@ -36,7 +24,7 @@ context('Actions', () => {
             'Pharmaceutical Products and Services',
             'Regulatory Systems'
         ]
-        const versionName = faker.random.number();
+        const versionName = faker.random.number()
         cy.wait(5000)
 
         cy.get('[data-test="headerbar-apps-icon"]').click()
@@ -52,13 +40,20 @@ context('Actions', () => {
         cy.get('.App_accordionTitle__ax5bv').contains(name).click();
         cy.wait(1000); 
         cy.get('input[type="checkbox"].jsx-4249355495').each(($el) => {
-            cy.wrap($el).check({force: true});
+            cy.wrap($el).check({force: true})
         })
     })
         cy.contains('Publish template').click()
 
     })
-    cy.lighthouse( thresholds, lighthouseConfig );
+
+cy.lighthouse({
+    performance: 90,
+    accessibility: 90,
+    'best-practices': 90,
+    seo: 90,
+    pwa: 50
+  });
 })
 })
 

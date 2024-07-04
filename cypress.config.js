@@ -1,26 +1,34 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from 'cypress';
+import { lighthouse, prepareAudit } from '@cypress-audit/lighthouse';
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      on('before:browser:launch', async (browser = {}, launchOptions) => {
+        await prepareAudit(launchOptions);
+
+        // Increase memory limit and other browser configurations if needed
+        if (browser.family === 'chromium' && browser.name !== 'electron') {
+          launchOptions.args.push('--disable-dev-shm-usage');
+          launchOptions.args.push('--disable-gpu');
+          launchOptions.args.push('--disable-software-rasterizer');
+        }
+        return launchOptions;
+      });
+
+      on('task', {
+        lighthouse: lighthouse()
+      });
+
+      return config;
     },
-  },
+    baseUrl: 'https://pssinternational.intellisoftkenya.com/', // Adjust this to your app's base URL
+    viewportWidth: 1280,
+    viewportHeight: 720,
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 60000
+  }
 });
 
-const { lighthouse, prepareAudit } = require("@cypress-audit/lighthouse");
-// const { pa11y } = require("@cypress-audit/pa11y");
-module.exports = {
-e2e: {
-baseUrl: "https://global.pssinsight.org", // this is your app
-setupNodeEvents(on, config) {
-on("before:browser:launch", (browser = {}, launchOptions) => {
-prepareAudit(launchOptions);
-});
-on("task", {
-lighthouse: lighthouse(),
-// pa11y: pa11y(console.log.bind(console)),
-});
-},
-},
-};
+
+
